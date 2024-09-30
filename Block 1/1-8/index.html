@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>hsahjdjad</h1>
+    </body>
+    <script>
+            let list = [];
+            while(1){
+                let inx = prompt("Geben sie zal");
+                let inp = parseInt(inx);
+                if(inx == "")break;
+                if(inp+"" == "NaN")alert("Ungültige eingabe");
+                else list.push(inp);
+            }
+            let operator = "";
+            while(1)
+            {
+                operator = prompt("Operator plz UwU I am furry gib me operator please OwO UwU ^.^");
+                if("+-/*".includes(operator[0]))break;
+            }
+            let first = true;
+            alert(list.reduce((sum, current) => 
+            {
+                if(first)
+                {
+                    first = false;
+                    return current;
+                }
+                return eval(sum+operator[0]+current);
+            }, 0));
+    </script>
+</html>

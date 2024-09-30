@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script type="text/javascript" src="javascript.js">
+</script>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+<input type="button" value="Hallo" onclick="removeEventListener('Hois')">
+<input type="button" value="Hello again" id="myButt">
+
+<script type="text/javascript">
+    let name = prompt();
+    const d = new Date();
+    let zeit = d.getHours();
+    zeit += 4;
+    alert(zeit);
+    if (zeit < 9) {
+        alert('guten Moregen' + name);
+    }
+    else if (zeit > 9 && zeit < 15){
+        alert('Guten Mittag ' + name);
+    
+    }
+    else if (zeit > 15 ) {
+        alert('Guten Abend ' + name + " Es ist " + zeit);
+    }
+</script>
+</body>
+</html> 

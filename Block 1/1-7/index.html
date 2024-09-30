@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>hsahjdjad</h1>
+    </body>
+    <script>
+        const numbertoguess = Math.floor(Math.random() * 100);
+        let guess = prompt()
+        let times = 0
+        while (numbertoguess != guess){
+            if (numbertoguess < guess) {
+                alert('zahl ist zu gross')}
+            else if (numbertoguess > guess){
+                alert('zahl ist zu klein')
+            }
+            guess = prompt()
+            times ++
+
+        }
+        alert('die zahl war ' + guess + " " + times)
+    </script>
+</html>
