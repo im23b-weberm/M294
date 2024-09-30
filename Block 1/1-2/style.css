@@ -1,0 +1,16 @@
+
+    background-color: lightgreen;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between
+}
+
+a{
+    border-radius: 30px;
+    border-color: white;
+}
