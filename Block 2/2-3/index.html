@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<style>
+    .large{
+        font-size: 2em;
+    }
+
+</style>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+<ul>
+    <li>Number 1</li>
+    <li>Number 2</li>
+</ul>
+
+<script>
+    document.body.style.backgroundColor = "yellow";
+
+    document.querySelector('h1').innerText = 'Matteo';
+
+    document.querySelector('p').classList.add('large');
+    const newListItem = document.createElement('li');
+    newListItem.innerText = 'Dritter Eintrag';
+    document.querySelector('ul').append(newListItem);
+    
+    //document.querySelector('ul li')[1].remove();
+    document.querySelectorAll('ul li')[1].remove();
+
+    const imger = document.createElement('img')
+    imger.src = 'https://picsum.photos/200/300'
+    document.querySelector('h1').after(imger)
+</script>
+
+</body>
+</html>

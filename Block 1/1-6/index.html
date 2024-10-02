@@ -16,10 +16,9 @@
     let name = prompt();
     const d = new Date();
     let zeit = d.getHours();
-    zeit += 4;
     alert(zeit);
     if (zeit < 9) {
-        alert('guten Moregen' + name);
+        alert('guten Moregen ' + name);
     }
     else if (zeit > 9 && zeit < 15){
         alert('Guten Mittag ' + name);

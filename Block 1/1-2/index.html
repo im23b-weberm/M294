@@ -3,6 +3,7 @@
     <head>
     <title>Spoofify</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js" defer> </script>
 </head>
 
 <body>
@@ -29,18 +30,29 @@
         </ol>
     </section>
     <section id="2">
-        <h2>Latest released </h2>
-        <ul class="bild">
-        <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="bild" width="50%"></li>
-        <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=2" alt="bild" width="50%"></li>
-        <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=3" alt="bild" width="50%"></li>
-        <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=4" alt="bild" width="50%"></li>
-        <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=5" alt="bild" width="50%"></li>
-        <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=6" alt="bild" width="50%"></li>
-    </ul>
+        <h2>Latest released randomized</h2>
+        <button onclick="location.reload()">randomized</button>
+        <input type="button" value="Add 3 relases" id="add-releas">
+        <input type="button" value="remove 3 relases" id="remove-releas">
+        <ul class="bild" onclick="traklist()">
+            <li class="bildik" ><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="bild" width="50%"></li>
+            <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=2" alt="bild" width="50%"></li>
+            <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=3" alt="bild" width="50%"></li>
+            <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=4" alt="bild" width="50%"></li>
+            <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=5" alt="bild" width="50%"></li>
+            <li class="bildik"><img src="https://loremflickr.com/480/480/cd,album,cover?random=6" alt="bild" width="50%"></li>
+        </ul>
+    <ol id="tracks">
+    </ol>
     </section>
     <footer>
         <p>2023 Spooky Example, Inc.</p>
     </footer>
 </body>
+<script>
+    function traklist(){
+        let list = document.getElementById('tracklist')
+        list.style.visibility = 'visible'
+    }
+</script>
 </html> 
