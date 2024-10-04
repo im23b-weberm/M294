@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Formular mit Assistenzfunktion</title>
+  </head>
+  <style>
+    label, input{
+      display: block;
+    }
+  </style>
+  <body>
+    <form name="vorschlag">
+      <label for="firstname">Vorname</label>
+      <input type="text" name="firstname" id="firstname">
+      <label for="surname">Nachname</label>
+      <input type="text" id="surname" name="surname">
+      <label for="street">Strasse</label>
+      <input type="text" id="street" name="street">
+      <label for="zip">PLZ</label>
+      <input type="number" name="zip" id="zip" min="1000">
+      <label for="ort">Ort</label>
+      <input type="text" id="ort" name="ort">
+      <button type="submit">Senden</button>
+    </form>
+  </body>
+  <script>
+    
+    let zips = {};
+    fetch('./places.json').then((res) => res.json()).then((data) => {
+      data.forEach((element)=>{
+        zips[element.zipcode] = element.place;
+      });
+    });
+     
+    
+    const form =  document.forms.vorschlag;
+    const ortung = document.getElementById('zip')
+
+    ortung.addEventListener('change', () => {
+      let ortElement  = document.getElementById('ort');
+      let zipElement = document.getElementById('zip');
+      if(zips[zipElement.value] != undefined)
+    {
+      ortElement.value = zips[zipElement.value];
+    } 
+    
+    })
+
+
+    vorschlag.addEventListener('submit', (event) =>{ 
+      event.preventDefault();
+      
+    })
+    
+  </script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="picture" style="display:inline-grid;grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);">
+
+    </div>
+</body>
+<script>
+    const wappenlist = ["ag","ai","ar","be","bl","bs","fr","ge","gl","gr","ju","lu","ne","nw","ow","sg","sh","so","sz","tg","ti","ur","vd","vs","zg","zh"];
+    
+    function getRandomItem() {
+        // get random index value
+        const randomIndex = Math.floor(Math.random() * wappenlist.length);
+
+        // get random item
+        const item = wappenlist[randomIndex];
+        
+        //return item;
+        for(let i=0;i<20;i++){
+            console.log(item);}
+
+        }
+        
+        for(let i=0;i<20;i++){
+            const randomIndex = Math.floor(Math.random() * wappenlist.length);
+
+        // get random item
+            const item = wappenlist[randomIndex];
+            const target = document.getElementById('picture');
+            const pic = './img/img/' + item + ".png";
+            pict = document.createElement('img');
+            pict.src = pic;
+            pict.setAttribute
+            target.append(pict);
+            pict.style.marginRight = "50px";
+            console.log(item);}
+            wappenlist.slice(0, item);
+            console.log(wappenlist);
+        
+        getRandomItem();
+</script>
+</html>

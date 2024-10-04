@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adresse</title>
+    </head>
+    <style>
+        input, label {
+                display: block;
+            }
+        input:invalid{
+            color: red;            
+        }
+
+    </style>
+    <body>
+        <h1>My best Friend</h1>
+        <h2>Add new Friend</h2>
+        <form action="" name="adressierung" id="adressierung">
+            <label for="firstname">Vorname</label>
+            <input type="text" name="firstname" id="firstname">
+            <label for="surname">Nachname</label>
+            <input type="text" id="surname" name="surname">
+            <label for="street">Strasse</label>
+            <input type="text" id="street" name="street">
+            <label for="zip">PLZ</label>
+            <input type="number" name="zip" id="zip" min="1000">
+            <label for="ort">Ort</label>
+            <input type="text" id="ort" name="ort">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <label for="duzis">Du?</label>
+            <input type="checkbox" id="duzis" name="duzis">
+            <fieldset>
+            <legend>Woher bekannt?</legend>
+            <label for="bekannt">Schule</label>
+            <input type="radio" id="bekannt" name="Schule">
+            <label for="bekannt">Arrbeit</label>
+            <input type="radio" id="bekannt1" name="arbeit">
+            <label for="bekannt">Privat</label>
+            <input type="radio" id="bekannt2" name="privat">
+            </fieldset>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </body>
+    <script>
+        const adressForm = document.forms.adressierung;
+        adressForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            console.log('form submitted');
+        });
+
+        adressForm.addEventListener('submit', (event) =>{ 
+            event.preventDefault();
+            let form = document.getElementById("adressierung");
+            let form_data = new FormData(form);
+            for(let element of form_data.keys()){
+                console.log(element+" = "+form_data.get(element))
+            }
+        });
+
+    </script>
+</html>

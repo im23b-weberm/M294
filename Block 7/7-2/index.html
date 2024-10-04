@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Post</title>
+    </head>
+    <body>
+        <h1>Blog</h1>
+        <input type="button" value="refresh" id="refreshButton">
+        <form action="" name="blogfrom">
+            <label for="title">titlel</label>
+            <input type="text" name="title" id="title">
+            <label for="text">text</label>
+            <input type="text" id="text" name="text">
+            <button type="submit">submit</button>
+        </form>
+        <div id="posts"></div>
+    </body>
+    <script>
+         // fetch("https://jsonplaceholder.typicode.com/posts").then(response => response.json()).then();
+         const blogdiv = document.getElementById('posts')
+        document.addEventListener('DOMContentLoaded', async () => {
+            
+            const blogdiv = document.getElementById('posts')
+            const refreshButton = document.getElementById('refreshButton')
+
+            async function removeArtcle(blogId) {
+
+                
+                fetch(`https://jsonplaceholder.typicode.com/posts/${blogId}`, {
+                     method: 'DELETE',
+                });
+                let rmvItem = document.getElementById(blogId);
+                rmvItem.remove();
+            }
+
+             
+            function renderBlogsPost(blogpost) {
+                blogdiv.replaceChildren([]);
+                blogpost.forEach(blogpost => {
+                    console.log(blogpost);
+                    const blogArticle = document.createElement('article');
+                    const blogTitle = document.createElement('h2');
+                    const blogBody = document.createElement('p');
+                    const rvmBut = document.createElement('button');
+                    rvmBut.innerText = "remove";
+                    rvmBut.onclick = () => {removeArtcle(blogpost.id)};
+                    blogBody.innerText = blogpost.body;
+                    blogTitle.innerText = blogpost.title;
+                    blogArticle.appendChild(blogTitle);
+                    blogArticle.appendChild(blogBody);
+                    blogArticle.appendChild(rvmBut);
+                    blogArticle.id = blogpost.id;
+                    blogdiv.appendChild(blogArticle);   
+                });
+            }
+
+            
+
+
+            async function loadBlogPost() {
+                const url = "https://jsonplaceholder.typicode.com/posts";
+                let result = await fetch(url);
+                let blogpost = await result.json();
+                renderBlogsPost(blogpost);
+            }
+            
+            loadBlogPost();
+            refreshButton.addEventListener('click', loadBlogPost)
+        });
+
+
+        const subitform = document.forms.blogfrom;
+        subitform.addEventListener('submit', (event) =>{ 
+            event.preventDefault();
+            let title = subitform.elements.title.value;
+            let text = subitform.elements.text.value;
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: JSON.stringify({
+                    title: title,
+                    body: text,
+                    userId: 1,
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+                const blogArticle = document.createElement('article');
+                const blogTitle = document.createElement('h2');
+                const blogBody = document.createElement('p');
+                blogBody.innerText = title;
+                blogTitle.innerText = text;
+                blogArticle.appendChild(blogTitle);
+                blogArticle.appendChild(blogBody);
+                blogdiv.appendChild(blogArticle);
+            });
+
+    </script>
+</html>

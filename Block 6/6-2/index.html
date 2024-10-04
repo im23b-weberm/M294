@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Passwort</title>
+    </head>
+    <style>
+        from{
+            display: block;
+        }
+
+        input:valid{
+            background: green;
+        }
+
+        input:invalid{
+            background: red;
+        }
+    </style>
+    <body>
+        <form action="" name="login">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <label for="passwort">Passwort</label>
+            <input type="password" id="passwort">
+            <label for="passwortcheck">Passwort wiederholen</label>
+            <input type="password" id="passwortcheck">
+            <label for="agb">Agb</label>
+            <input type="checkbox" id="agb">
+            <button type="submit">Submit</button>
+
+        </form>
+    </body>
+    <script>
+        const from = document.forms.login;
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+        })
+    </script>
+</html>

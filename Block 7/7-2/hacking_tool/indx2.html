@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bsrn</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="username">username</label>
+            <input type="text" id="username">
+            <label for="text">nachricht</label>
+            <input type="text" id="text">
+            <button type="submit">submit</button>
+        </form>
+    </body>
+    <script>
+        document.addEventListener('submit', () => {
+            event.preventDefault();
+            let username = document.getElementById('username')
+            let text = document.getElementById('text')
+            fetch("http://localhost/challenges/1", {
+                method: "POST",
+            }).then((resp) => {
+                
+                let token = resp.headers.get("authorization");
+                console.log(token)
+                fetch('http://localhost/comments', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        username: username.value,
+                        message: text.value,
+                    }), headers: {
+                        'Content-type': 'application/json',
+                        "Authorization": token
+                    }
+            })})
+        })
+    </script>
+</html>

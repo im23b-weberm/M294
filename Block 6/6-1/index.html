@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formular Beispiel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        
+
+        
+        
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Begrüßungsformular</h1>
+    <p>Geben Sie Ihren Namen ein und klicken Sie auf "Absenden", um die Begrüßung basierend auf der aktuellen Uhrzeit zu sehen.</p>
+
+    <form id="greetingForm" name="nume">
+        <label for="name">Ihr Name:</label>
+        <input type="text" id="name" name="name" placeholder="Geben Sie Ihren Namen ein">
+        <button type="submit">Absenden</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script type="text/javascript">
+        const form = document.getElementById('greetingForm');
+        const outputDiv = document.getElementById('output');
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Verhindert das automatische Neuladen der Seite
+
+            // Name aus dem Formular holen
+            const name = form.elements.name.value;
+
+            // Aktuelle Uhrzeit abrufen
+            const d = new Date();
+            const zeit = d.getHours();
+
+            let greetingMessage = '';
+
+            // Begrüßung basierend auf der Uhrzeit
+            if (zeit < 9) {
+                greetingMessage = 'Guten Morgen, ' + name + '!';
+            } else if (zeit >= 9 && zeit < 15) {
+                greetingMessage = 'Guten Mittag, ' + name + '!';
+            } else if (zeit >= 15) {
+                greetingMessage = 'Guten Abend, ' + name + '! Es ist ' + zeit + ' Uhr.';
+            }
+
+            // Ausgabe in das HTML-Element statt alert
+            outputDiv.textContent = greetingMessage;
+        });
+    </script>
+
+</body>
+</html>
